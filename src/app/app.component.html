@@ -1,29 +1,41 @@
 <h1>Hello Angular world</h1>
-<!--<p>{{title}}</p>-->
-<!--<p><strong>{{number - 2}}</strong></p>-->
-<!--<p><strong>{{arr}}</strong></p>-->
-<!--<p><strong>{{obj.a}}</strong></p>-->
-<!--<p><strong>{{'Hello' + 'world!'}}</strong></p>-->
+<!--<button (click)="backgroundToggle = !backgroundToggle">Toggle</button>-->
+<!--<div [ngStyle]="{-->
+<!--width: '200px',-->
+<!--height: '200px',-->
+<!--borderRadius: '5px',-->
+<!--border: '1px, solid #ccc',-->
+<!--background: backgroundToggle ? 'red' : 'blue'-->
+<!--}">-->
 
-<!--через интерполяцию-->
-<!--<img src="{{img}}" alt=""> -->
+<!--</div>-->
 
-<!--через binding [] - одностаронний binding-->
-<!--<img [src]="img" alt="">-->
+<!--<p [ngClass]="{-->
+<!--red: backgroundToggle,-->
+<!--blue: !backgroundToggle-->
+<!--} ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, molestias.</p>-->
 
-<button (click)="onClick()">Click me</button>
+<!--<p [class.blue]="!backgroundToggle"-->
+<!--   [class.red]="backgroundToggle"-->
+<!--  >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, nemo.</p>-->
 
-<input
-  type="text"
-  (keyup.enter)="onInput($event)"
-  (blur)="onBlur(myInput.value)"
-  #myInput
->
-<p><strong>{{inputValue}}</strong></p>
-<hr>
-<app-post></app-post>
-<!--<app-post2></app-post2>-->
-<!--<app-post3></app-post3>-->
+<!--№ 15 Angular для чайников/Отображение по условию с ngIf else-->
+<!--<p *ngIf="toggle" class="red">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, qui!</p>-->
+<!--<p *ngIf="!toggle" class="blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, qui!</p>-->
 
-<hr>
-<app-post4></app-post4>
+<!--<button (click)="toggle = !toggle">Toggle</button>-->
+
+<!--<p *ngIf="toggle; else blueP" class="red">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, qui!</p>-->
+<!--<ng-template #blueP>-->
+<!--  <p *ngIf="!toggle" class="blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, qui!</p>-->
+<!--</ng-template>-->
+
+
+<button (click)="toggle = !toggle">Toggle</button>
+<button (click)="toggle = 111">Set 111</button>
+<div [ngSwitch]="toggle">
+  <p *ngSwitchCase="true" class="red">Loren ipsum</p>
+  <p *ngSwitchCase="false" class="blue">Loren ipsum. Loren ipsum</p>
+  <p *ngSwitchDefault>Loren ipsum</p>
+
+</div>
